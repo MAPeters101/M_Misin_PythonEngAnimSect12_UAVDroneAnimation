@@ -35,13 +35,13 @@ def update_plot(num):
     pos_y.set_data(t[0:num],y[0:num])
     pos_z.set_data(t[0:num],z[0:num])
 
-    drone_body_x.set_xdata([x[num]-0.5,x[num]+0.5])
-    drone_body_x.set_ydata([y[num],y[num]])
-    drone_body_x.set_3d_properties([z[num],z[num]])
-
-    drone_body_y.set_xdata([x[num],x[num]])
-    drone_body_y.set_ydata([y[num]-0.5,y[num]+0.5])
-    drone_body_y.set_3d_properties([z[num],z[num]])
+    # drone_body_x.set_xdata([x[num]-0.5,x[num]+0.5])
+    # drone_body_x.set_ydata([y[num],y[num]])
+    # drone_body_x.set_3d_properties([z[num],z[num]])
+    #
+    # drone_body_y.set_xdata([x[num],x[num]])
+    # drone_body_y.set_ydata([y[num]-0.5,y[num]+0.5])
+    # drone_body_y.set_3d_properties([z[num],z[num]])
 
     # drone_body_x.set_xdata([x[num]-0.5*np.cos(np.pi/6),x[num]+0.5*np.cos(np.pi/6)])
     # drone_body_x.set_ydata([y[num],y[num]])
@@ -58,6 +58,14 @@ def update_plot(num):
     # drone_body_y.set_xdata([x[num],x[num]])
     # drone_body_y.set_ydata([y[num]-0.5*np.cos(np.pi/6),y[num]+0.5*np.cos(np.pi/6)])
     # drone_body_y.set_3d_properties([z[num]-0.5*np.sin(np.pi/6),z[num]+0.5*np.sin(np.pi/6)])
+
+    drone_body_x.set_xdata([x[num]-0.5*np.cos(2*np.pi*(f)*t[num]),x[num]+0.5*np.cos(2*np.pi*(f)*t[num])])
+    drone_body_x.set_ydata([y[num]-0.5*np.sin(2*np.pi*(f)*t[num]),y[num]+0.5*np.sin(2*np.pi*(f)*t[num])])
+    drone_body_x.set_3d_properties([z[num],z[num]])
+
+    drone_body_y.set_xdata([x[num],x[num]])
+    drone_body_y.set_ydata([y[num]-0.5,y[num]+0.5])
+    drone_body_y.set_3d_properties([z[num],z[num]])
 
     return plane_trajectory,pos_x,pos_y,pos_z,drone_body_x,drone_body_y
 
