@@ -5,7 +5,7 @@ import matplotlib.animation as animation
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 
-
+#print(matplotlib.__version__)
 # Create the time array
 t0=0
 t_end=10
@@ -39,7 +39,11 @@ def update_plot(num):
     drone_body_x.set_ydata([y[num],y[num]])
     drone_body_x.set_3d_properties([z[num],z[num]])
 
-    return plane_trajectory,pos_x,pos_y,pos_z,drone_body_x
+    drone_body_y.set_xdata([x[num],x[num]])
+    drone_body_y.set_ydata([y[num]-0.5,y[num]+0.5])
+    drone_body_y.set_3d_properties([z[num],z[num]])
+
+    return plane_trajectory,pos_x,pos_y,pos_z,drone_body_x,drone_body_y
 
 # Set up your figure properties
 fig=plt.figure(figsize=(16,9),dpi=80,facecolor=(0.8,0.8,0.8))
