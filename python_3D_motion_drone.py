@@ -7,7 +7,7 @@ import numpy as np
 
 #print(matplotlib.__version__)
 
-type=4
+type=5
 
 # Create the time array
 t0=0
@@ -45,10 +45,10 @@ elif type==4:
     # Create array for the Z dimension
     z=t
 elif type==5:
-    r=0.5+0*t
-    f=.25+0*t
+    r=0.25*t
+    f=0.25*t
     x=0*t
-    y=-0.25*t
+    y=0*t
     # Create array for the Z dimension
     z=t
 
