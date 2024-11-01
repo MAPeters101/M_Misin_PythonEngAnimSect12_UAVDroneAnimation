@@ -35,7 +35,11 @@ def update_plot(num):
     pos_y.set_data(t[0:num],y[0:num])
     pos_z.set_data(t[0:num],z[0:num])
 
-    return plane_trajectory,pos_x,pos_y,pos_z
+    drone_body_x.set_xdata([x[num]-0.5,x[num]+0.5])
+    drone_body_x.set_ydata([y[num],y[num]])
+    drone_body_x.set_3d_properties([z[num],z[num]])
+
+    return plane_trajectory,pos_x,pos_y,pos_z,drone_body_x
 
 # Set up your figure properties
 fig=plt.figure(figsize=(16,9),dpi=80,facecolor=(0.8,0.8,0.8))
@@ -44,6 +48,8 @@ gs=gridspec.GridSpec(3,4)
 # 3D motion
 ax0=fig.add_subplot(gs[:,0:3],projection='3d',facecolor=(0.9,0.9,0.9))
 plane_trajectory,=ax0.plot([],[],[],'r',linewidth=1,label='Flight trajectory')
+drone_body_x,=ax0.plot([],[],[],'b',linewidth=5,label='drone_x')
+drone_body_y,=ax0.plot([],[],[],'g',linewidth=5,label='drone_y')
 ax0.set_xlim(-3,3)
 ax0.set_ylim(-3,3)
 # ax0.set_xlim(min(x),max(x))
