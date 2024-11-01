@@ -16,7 +16,7 @@ t=np.arange(t0,t_end+dt,dt)
 r=3
 f=-.25
 x=0*t
-y=0*t
+y=-0.25*t
 
 # Create array for the Z dimension
 z=t
