@@ -13,8 +13,8 @@ dt=0.02
 t=np.arange(t0,t_end+dt,dt)
 
 # Create array for x & y dimensions
-r=3
-f=.25
+r=0.5+0*t
+f=.25+0*t
 x=0*t
 y=0*t
 
@@ -59,12 +59,12 @@ def update_plot(num):
     # drone_body_y.set_ydata([y[num]-0.5*np.cos(np.pi/6),y[num]+0.5*np.cos(np.pi/6)])
     # drone_body_y.set_3d_properties([z[num]-0.5*np.sin(np.pi/6),z[num]+0.5*np.sin(np.pi/6)])
 
-    drone_body_x.set_xdata([x[num]-0.5*np.cos(2*np.pi*(f)*t[num]),x[num]+0.5*np.cos(2*np.pi*(f)*t[num])])
-    drone_body_x.set_ydata([y[num]-0.5*np.sin(2*np.pi*(f)*t[num]),y[num]+0.5*np.sin(2*np.pi*(f)*t[num])])
+    drone_body_x.set_xdata([x[num]-r[num]*np.cos(2*np.pi*(f[num])*t[num]),x[num]+r[num]*np.cos(2*np.pi*(f[num])*t[num])])
+    drone_body_x.set_ydata([y[num]-r[num]*np.sin(2*np.pi*(f[num])*t[num]),y[num]+r[num]*np.sin(2*np.pi*(f[num])*t[num])])
     drone_body_x.set_3d_properties([z[num],z[num]])
 
-    drone_body_y.set_xdata([x[num]-0.5*np.cos(2*np.pi*(f)*t[num]+np.pi/2),x[num]+0.5*np.cos(2*np.pi*(f)*t[num]+np.pi/2)])
-    drone_body_y.set_ydata([y[num]-0.5*np.sin(2*np.pi*(f)*t[num]+np.pi/2),y[num]+0.5*np.sin(2*np.pi*(f)*t[num]+np.pi/2)])
+    drone_body_y.set_xdata([x[num]-r[num]*np.cos(2*np.pi*(f[num])*t[num]+np.pi/2),x[num]+r[num]*np.cos(2*np.pi*(f[num])*t[num]+np.pi/2)])
+    drone_body_y.set_ydata([y[num]-r[num]*np.sin(2*np.pi*(f[num])*t[num]+np.pi/2),y[num]+r[num]*np.sin(2*np.pi*(f[num])*t[num]+np.pi/2)])
     drone_body_y.set_3d_properties([z[num],z[num]])
 
     return plane_trajectory,pos_x,pos_y,pos_z,drone_body_x,drone_body_y
